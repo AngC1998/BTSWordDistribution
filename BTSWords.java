@@ -7,10 +7,16 @@ public class BTSWords {
 		printOrder("I'm Fine", imFineDist);
 		Map<Integer, ArrayList<String>> idolDist = calcWordDistOrder("IDOL", "IDOL.txt");
 		printOrder("IDOL", idolDist);
+		Map<Integer, ArrayList<String>> tUDist = calcWordDistOrder("Truth Untold", "TruthUntold.txt");
+		printOrder("Truth Untold", tUDist);
 	}
 	public static void printOrder(String songName, Map<Integer, ArrayList<String>> songDist) {
 		System.out.println("***"+songName+"***");
-		int k = 7;
+		int k = 0;
+		for(Integer i: songDist.keySet()) {
+			ArrayList<String> names = songDist.get(i);
+			k += names.size();
+		}
 		int h = 0;
 		for(Integer i: songDist.keySet()) {
 			ArrayList<String> names = songDist.get(i);
@@ -106,16 +112,19 @@ public class BTSWords {
 		for(int i = 0; i < count.length; i++) {
 			int num = count[i];
 			String name = names[i];
-			if(songTotals.get(num) == null) {
-				ArrayList<String> namesList = new ArrayList<String>();
-				namesList.add(name);
-				songTotals.put(num, namesList);
+			if(num > 0) {
+				if(songTotals.get(num) == null) {
+					ArrayList<String> namesList = new ArrayList<String>();
+					namesList.add(name);
+					songTotals.put(num, namesList);
+				}
+				else {
+					ArrayList<String> namesList = songTotals.get(num);
+					namesList.add(name);
+					songTotals.put(num, namesList);
+				}
 			}
-			else {
-				ArrayList<String> namesList = songTotals.get(num);
-				namesList.add(name);
-				songTotals.put(num, namesList);
-			}
+
 		}
 		return songTotals;
 	}

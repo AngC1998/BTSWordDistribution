@@ -9,6 +9,16 @@ public class BTSWords {
 		printOrder("IDOL", idolDist);
 		Map<Integer, ArrayList<String>> tUDist = calcWordDistOrder("Truth Untold", "TruthUntold.txt");
 		printOrder("Truth Untold", tUDist);
+		Map<Integer, ArrayList<String>> loveMazeDist = calcWordDistOrder("Love Maze", "LoveMaze.txt");
+		printOrder("Love Maze", loveMazeDist);
+		Map<Integer, ArrayList<String>> plutoDist = calcWordDistOrder("134340", "Pluto.txt");
+		printOrder("134340", plutoDist);
+		Map<Integer, ArrayList<String>> jumpDist = calcWordDistOrder("Jump", "Jump.txt");
+		printOrder("Jump", jumpDist);
+		Map<Integer, ArrayList<String>> maCityDist = calcWordDistOrder("Ma City", "MaCity.txt");
+		printOrder("Ma City", maCityDist);
+		Map<Integer, ArrayList<String>> dimpleDist = calcWordDistOrder("Dimple", "Dimple.txt");
+		printOrder("Dimple", dimpleDist);
 	}
 	public static void printOrder(String songName, Map<Integer, ArrayList<String>> songDist) {
 		System.out.println("***"+songName+"***");
